@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LQ Factory – Líquidos para el automotor</title>
+<link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="./logo.png" alt="LQ Factory" class="lq-logo-img">
+    <div class="nav-brand">LQ Factory <small>Quality in Liquid</small></div>
+  </a>
+  <ul>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#por-que">Nosotros</a></li>
+    <li><a href="mailto:lqfabrica@gmail.com">Contacto</a></li>
+  </ul>
+  <button class="cart-btn" onclick="toggleCart()">
+    🛒 Carrito <span class="cart-count" id="cartCount">0</span>
+  </button>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Quality in Liquid · 25 años en el mercado</div>
+    <h1>Línea de <em>químicos</em><br>para el máximo<br>rendimiento</h1>
+    <p>Fabricamos y distribuimos refrigerantes, líquidos de frenos y artículos de limpieza automotriz con los más altos estándares de calidad.</p>
+    <div class="hero-badges">
+      <div class="badge">🏅 Certificado IRAM</div>
+      <div class="badge">🚚 Logística nacional</div>
+      <div class="badge">💬 Atención directa</div>
+    </div>
+    <a href="#productos" class="hero-cta">Ver catálogo completo ↓</a>
+  </div>
+  <div class="hero-visual">
+    <img src="./TODO_EL_PORTAFOLIO.png" alt="Línea completa LQ Factory" class="hero-portfolio-img">
+  </div>
+</div>
+
+<section id="productos" style="background:#F4F6F8;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Catálogo 2025</div>
+      <div class="section-title">Nuestros Productos</div>
+    </div>
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="refrigerante">Refrigerantes</button>
+      <button class="filter-btn" data-filter="frenos">Liq. de Frenos</button>
+      <button class="filter-btn" data-filter="limpieza">Estética</button>
+      <button class="filter-btn" data-filter="agua">Agua</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<section id="por-que" class="why-section">
+  <div class="container">
+    <div class="section-header why-header-anim">
+      <div class="section-eyebrow" style="color:#C8192E;">¿Por qué elegirnos?</div>
+      <div class="section-title" style="color:white;">Calidad que se siente</div>
+    </div>
+
+    <div class="why-stats">
+      <div class="why-stat stat-anim" style="--d:0ms">
+        <div class="why-stat-num" data-target="25">0</div>
+        <div class="why-stat-label">Años en el mercado</div>
+      </div>
+      <div class="why-stat stat-anim" style="--d:120ms">
+        <div class="why-stat-num" data-target="13">0</div>
+        <div class="why-stat-label">Productos en línea</div>
+      </div>
+      <div class="why-stat stat-anim" style="--d:240ms">
+        <div class="why-stat-num" data-target="100">0</div>
+        <div class="why-stat-label">% fabricación propia</div>
+      </div>
+      <div class="why-stat stat-anim" style="--d:360ms">
+        <div class="why-stat-num" data-target="23">0</div>
+        <div class="why-stat-label">Provincias con cobertura</div>
+      </div>
+    </div>
+
+    <div class="why-cards-new">
+      <div class="why-card-new card-anim" style="--d:0ms">
+        <div class="why-card-icon-wrap"><span class="why-card-icon">🏭</span></div>
+        <div class="why-card-content">
+          <div class="why-card-title">Fabricación propia</div>
+          <div class="why-card-desc">Envases con matricería y diseño propio. Cada producto 100% original y sin adulteraciones.</div>
+        </div>
+        <div class="why-card-line"></div>
+      </div>
+      <div class="why-card-new card-anim" style="--d:100ms">
+        <div class="why-card-icon-wrap"><span class="why-card-icon">🏅</span></div>
+        <div class="why-card-content">
+          <div class="why-card-title">Certificado IRAM</div>
+          <div class="why-card-desc">Cumplimos las normas más exigentes del mercado automotriz argentino.</div>
+        </div>
+        <div class="why-card-line"></div>
+      </div>
+      <div class="why-card-new card-anim" style="--d:200ms">
+        <div class="why-card-icon-wrap"><span class="why-card-icon">🚚</span></div>
+        <div class="why-card-content">
+          <div class="why-card-title">Logística nacional</div>
+          <div class="why-card-desc">Enviamos a todo el país con seguimiento y tiempos de entrega concretos.</div>
+        </div>
+        <div class="why-card-line"></div>
+      </div>
+      <div class="why-card-new card-anim" style="--d:300ms">
+        <div class="why-card-icon-wrap"><span class="why-card-icon">🤝</span></div>
+        <div class="why-card-content">
+          <div class="why-card-title">Atención personalizada</div>
+          <div class="why-card-desc">Tratamos cada pedido de forma directa, sin intermediarios. Más de 25 años de experiencia.</div>
+        </div>
+        <div class="why-card-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left contact-anim">
+        <div class="section-eyebrow">Contacto directo</div>
+        <h2 class="contact-title">Hablemos de<br><em>tu pedido</em></h2>
+        <p class="contact-sub">Atendemos distribuidores, autopartes y talleres en todo el país. Sin intermediarios, sin demoras.</p>
+        <div class="contact-channels">
+          <a href="https://wa.me/5493517075757" target="_blank" class="contact-channel wsp">
+            <div class="channel-icon">💬</div>
+            <div class="channel-info">
+              <div class="channel-label">WhatsApp</div>
+              <div class="channel-val">+54 9 351 707-5757</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+          <a href="mailto:lqfabrica@gmail.com" class="contact-channel mail">
+            <div class="channel-icon">✉️</div>
+            <div class="channel-info">
+              <div class="channel-label">Email</div>
+              <div class="channel-val">lqfabrica@gmail.com</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+          <a href="https://www.instagram.com/lq.factory/" target="_blank" class="contact-channel insta">
+            <div class="channel-icon">📸</div>
+            <div class="channel-info">
+              <div class="channel-label">Instagram</div>
+              <div class="channel-val">@lq.factory</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right contact-anim-r">
+        <div class="contact-card">
+          <div class="contact-card-header">
+            <div class="lq-emblem-sm">LQ</div>
+            <div>
+              <div class="contact-card-brand">LQ Factory</div>
+              <div class="contact-card-sub">Quality in Liquid · Córdoba, Argentina</div>
+            </div>
+          </div>
+          <div class="contact-divider"></div>
+          <div class="contact-info-rows">
+            <div class="contact-info-row">
+              <span class="ci-label">Atención</span>
+              <span class="ci-val">Lunes a Viernes · 8 a 18 hs</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="ci-label">Pedido mínimo</span>
+              <span class="ci-val">Consultar por volumen</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="ci-label">Envíos</span>
+              <span class="ci-val">Todo el país · Correo + flete</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="ci-label">Pagos</span>
+              <span class="ci-val">Transferencia · Efectivo</span>
+            </div>
+          </div>
+          <a href="https://wa.me/5493517075757?text=Hola%20LQ%20Factory!%20Quiero%20hacer%20un%20pedido." target="_blank" class="contact-wsp-btn">
+            Hacer pedido por WhatsApp 📲
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">LQ <span>Factory</span></div>
+  <p>Fabricantes y distribuidores de líquidos para frenos, refrigerantes y artículos de limpieza automotriz.</p>
+  <div class="footer-links">
+    <a href="mailto:lqfabrica@gmail.com">lqfabrica@gmail.com</a>
+    <a href="https://www.instagram.com/lq.factory/" target="_blank">@lq.factory</a>
+    <a href="https://lqfactory.com.ar" target="_blank">lqfactory.com.ar</a>
+  </div>
+  <p style="font-size:13px;margin-top:8px">© 2025 LQ Factory · Quality in Liquid · Córdoba, Argentina</p>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h2>🛒 Tu carrito</h2>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Tu carrito está vacío.<br>Agregá productos del catálogo.</p></div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total estimado</span>
+      <span class="cart-total-price" id="cartTotal">$0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Pedir por WhatsApp 📲</button>
+    <p class="cart-note">Te contactaremos para confirmar disponibilidad y coordinar el pago y envío.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleModalOverlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header" id="modalHeader">
+      <div class="modal-visual" id="modalVisual">
+        <div class="pb" id="modalBottle"></div>
+      </div>
+      <div class="modal-head-info">
+        <div class="modal-num-tag">
+          <div class="modal-num" id="modalNum"></div>
+          <div class="modal-cat" id="modalCat"></div>
+        </div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-vol" id="modalVol"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-price-row">
+        <div class="modal-price-label">Precio por unidad</div>
+        <div class="modal-price" id="modalPrice"></div>
+      </div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-specs" id="modalSpecs"></div>
+      <div class="modal-actions">
+        <button class="modal-add-btn" id="modalAddBtn">+ Agregar al carrito</button>
+        <button class="modal-secondary-btn" onclick="closeModal()">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const products = [
+  {id:1, num:1,  name:"Refrigerante Anticongelante Rosa",         vol:"5 LTS",  price:10000, cat:"refrigerante", color:"pb-pink",
+   desc:"Refrigerante orgánico (OAT) de alta tecnología. Compatible con motores nafteros, diésel y a gas. Formulado con inhibidores de corrosión de larga duración.",
+   specs:[{l:"Norma",v:"IRAM 113043"},{l:"Tipo",v:"Orgánico OAT"},{l:"Dilución",v:"Sin diluir (100%)"},{l:"Temperatura",v:"Hasta −40 °C"}]},
+  {id:2, num:2,  name:"Refrigerante Anticongelante Verde",        vol:"5 LTS",  price:1490, cat:"refrigerante", color:"pb-green", img:"./prd1.png",
+   desc:"Refrigerante convencional (IAT) ideal para vehículos con motores de fundición ferrosa. Excelente protección anticorrosión y anticongelante.",
+   specs:[{l:"Norma",v:"IRAM 113043"},{l:"Tipo",v:"Convencional IAT"},{l:"Dilución",v:"Sin diluir (100%)"},{l:"Temperatura",v:"Hasta −37 °C"}]},
+  {id:3, num:3,  name:"Refrigerante Anticongelante Amarillo",     vol:"5 LTS",  price:1490, cat:"refrigerante", color:"pb-yellow",
+   desc:"Refrigerante híbrido (HOAT) de última generación. Compatible con motores modernos de aluminio y aleaciones mixtas.",
+   specs:[{l:"Norma",v:"IRAM 113043"},{l:"Tipo",v:"Híbrido HOAT"},{l:"Dilución",v:"Sin diluir (100%)"},{l:"Temperatura",v:"Hasta −38 °C"}]},
+  {id:4, num:4,  name:"Refrigerante Anticongelante 30% Rosa",     vol:"5 LTS",  price:4240, cat:"refrigerante", color:"pb-white",
+   desc:"Mezcla lista para usar al 30% con agua desmineralizada. Protección anticongelante y anticorrosión sin necesidad de dilución adicional.",
+   specs:[{l:"Concentración",v:"30% anticongelante"},{l:"Tipo",v:"Orgánico OAT"},{l:"Dilución",v:"Listo para usar"},{l:"Temperatura",v:"Hasta −16 °C"}]},
+  {id:5, num:5,  name:"Refrigerante Anticongelante 30% Verde",    vol:"5 LTS",  price:4240, cat:"refrigerante", color:"pb-white",
+   desc:"Mezcla al 30% lista para usar. Formulación convencional para vehículos con sistemas de refrigeración estándar.",
+   specs:[{l:"Concentración",v:"30% anticongelante"},{l:"Tipo",v:"Convencional IAT"},{l:"Dilución",v:"Listo para usar"},{l:"Temperatura",v:"Hasta −16 °C"}]},
+  {id:6, num:6,  name:"Refrigerante Anticongelante 30% Amarillo", vol:"5 LTS",  price:4240, cat:"refrigerante", color:"pb-white",
+   desc:"Mezcla al 30% lista para usar con tecnología híbrida. Ideal para el clima templado argentino.",
+   specs:[{l:"Concentración",v:"30% anticongelante"},{l:"Tipo",v:"Híbrido HOAT"},{l:"Dilución",v:"Listo para usar"},{l:"Temperatura",v:"Hasta −16 °C"}]},
+  {id:7, num:7,  name:"Agua Desmineralizada LQ",                  vol:"5 LTS",  price:1240, cat:"agua",         color:"pb-clear",
+   desc:"Agua desmineralizada de alta pureza para dilución de refrigerantes y relleno de baterías. Libre de minerales, cloro e impurezas que dañan el sistema de enfriamiento.",
+   specs:[{l:"Conductividad",v:"< 10 μS/cm"},{l:"pH",v:"6.5 – 7.5"},{l:"Uso",v:"Refrigerantes/baterías"},{l:"Contenido",v:"Sin aditivos"}]},
+  {id:8, num:8,  name:"Líquido de Frenos DOT 3",                 vol:"500 CC", price:3100, cat:"frenos",       color:"pb-orange",
+   desc:"Líquido de frenos a base de glicol éter que cumple la norma DOT 3. Apto para sistemas de frenos hidráulicos convencionales y embragues.",
+   specs:[{l:"Norma",v:"DOT 3 / FMVSS 116"},{l:"Punto de ebullición",v:"≥ 205 °C"},{l:"Base",v:"Glicol éter"},{l:"Compatibilidad",v:"ABS / sistemas conv."}]},
+  {id:9, num:9,  name:"Líquido de Frenos DOT 4 Plus",            vol:"500 CC", price:4000, cat:"frenos",       color:"pb-red",
+   desc:"Formulación avanzada DOT 4 con punto de ebullición superior. Recomendado para vehículos con exigencia mayor: ABS, ESP, frenos de disco de alto rendimiento.",
+   specs:[{l:"Norma",v:"DOT 4 / FMVSS 116"},{l:"Punto de ebullición",v:"≥ 230 °C"},{l:"Base",v:"Glicol éter borado"},{l:"Compatibilidad",v:"ABS / ESP / alto rend."}]},
+  {id:10,num:10, name:"Resaltador de Caucho Siliconado",          vol:"500 CC", price:2100, cat:"limpieza",     color:"pb-blue", img:"./prod2.png",
+   desc:"Producto siliconado para proteger y resaltar gomas, burletes, paragolpes y plásticos. Deja un acabado brillante y protege contra la decoloración por UV.",
+   specs:[{l:"Contenido",v:"Silicona activa"},{l:"Aplicación",v:"Gomas / plásticos"},{l:"Acabado",v:"Brillante"},{l:"Protección UV",v:"Sí"}]},
+  {id:11,num:11, name:"Lava Cristales",                          vol:"500 CC", price:2100, cat:"limpieza",     color:"pb-blue",
+   desc:"Limpiador concentrado para limpiaparabrisas. Elimina insectos, polvo y grasa del parabrisas sin rayar. Formulación antiespumante apta para el depósito del vehículo.",
+   specs:[{l:"Dilución",v:"1:10 con agua"},{l:"Rendimiento",v:"≈ 5 L finales"},{l:"Antiespumante",v:"Sí"},{l:"Temperatura",v:"Hasta −5 °C"}]},
+  {id:12,num:12, name:"Shampoo Siliconado",                      vol:"500 CC", price:2700, cat:"limpieza",     color:"pb-magenta",
+   desc:"Shampoo automotriz con silicona activa que limpia y protege la pintura al mismo tiempo. Genera una capa hidrofóbica que repele el agua y el barro.",
+   specs:[{l:"Con cera",v:"No"},{l:"Con silicona",v:"Sí"},{l:"Dilución",v:"1:50 recomendado"},{l:"pH",v:"Neutro 7"}]},
+  {id:13,num:13, name:"Silicona Protectora",                     vol:"250 CC", price:2100, cat:"limpieza",     color:"pb-lime",
+   desc:"Silicona multiuso en formato spray/líquido para proteger plásticos, gomas y superficies internas. Ideal para tableros, cintas transportadoras y mecanismos.",
+   specs:[{l:"Presentación",v:"Líquido"},{l:"Aplicación",v:"Interior / exterior"},{l:"Acabado",v:"Semimate"},{l:"Superficie",v:"Plástico / goma / metal"}]},
+];
+
+const swatchColors = {
+  'pb-pink':'linear-gradient(160deg,#e84d6e,#c8192e)',
+  'pb-green':'linear-gradient(160deg,#2d8a4e,#1a5c32)',
+  'pb-yellow':'linear-gradient(160deg,#c8a900,#9a7f00)',
+  'pb-white':'linear-gradient(160deg,#c0cdd6,#96a8b2)',
+  'pb-clear':'linear-gradient(160deg,#aabbc9,#7a93a6)',
+  'pb-orange':'linear-gradient(160deg,#f08000,#b85c00)',
+  'pb-red':'linear-gradient(160deg,#e84d6e,#c8192e)',
+  'pb-blue':'linear-gradient(160deg,#1e6ca8,#0d4070)',
+  'pb-magenta':'linear-gradient(160deg,#d44090,#a0206e)',
+  'pb-lime':'linear-gradient(160deg,#90b800,#668500)',
+};
+
+let cart = {};
+
+function fmt(n){ return '$' + n.toLocaleString('es-AR'); }
+
+function catLabel(c){ return {refrigerante:'Refrigerante',frenos:'Frenos',limpieza:'Estética',agua:'Agua'}[c]||c; }
+
+function renderGrid(filter){
+  const grid = document.getElementById('productGrid');
+  const list = filter==='all' ? products : products.filter(p=>p.cat===filter);
+  grid.innerHTML = list.map(p=>`
+    <div class="product-card">
+      <div class="product-card-header">
+        <div class="product-num">${p.num}</div>
+        <div class="product-category-tag">${catLabel(p.cat)}</div>
+      </div>
+      <div class="product-visual" onclick="openModal(${p.id})">
+        ${p.img
+          ? `<img src="${p.img}" alt="${p.name}" class="product-real-img">`
+          : `<div class="pb ${p.color}"></div>`}
+      </div>
+      <div class="product-info" onclick="openModal(${p.id})">
+        <div class="product-name">${p.name}</div>
+        <div class="product-volume">Envase × ${p.vol}</div>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">${fmt(p.price)}<span> ×${p.vol}</span></div>
+        <button class="add-btn" onclick="addToCart(${p.id})" title="Agregar">+</button>
+      </div>
+    </div>`).join('');
+}
+
+function openModal(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('modalNum').textContent = p.num;
+  document.getElementById('modalCat').textContent = catLabel(p.cat);
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalVol').textContent = 'Envase × ' + p.vol;
+  document.getElementById('modalPrice').innerHTML = fmt(p.price) + '<small> / unidad</small>';
+  document.getElementById('modalDesc').textContent = p.desc;
+  const bottle = document.getElementById('modalBottle');
+  if(p.img){
+    bottle.outerHTML = `<img id="modalBottle" src="${p.img}" alt="${p.name}" class="modal-real-img">`;
+  } else {
+    // reset to div if coming from an img
+    const existing = document.getElementById('modalBottle');
+    if(existing.tagName === 'IMG'){
+      const div = document.createElement('div');
+      div.id = 'modalBottle';
+      div.className = 'pb ' + p.color;
+      existing.replaceWith(div);
+    } else {
+      existing.className = 'pb ' + p.color;
+    }
+  }
+  document.getElementById('modalSpecs').innerHTML = p.specs.map(s=>
+    `<div class="modal-spec"><div class="modal-spec-label">${s.l}</div><div class="modal-spec-value">${s.v}</div></div>`
+  ).join('');
+  const addBtn = document.getElementById('modalAddBtn');
+  addBtn.onclick = () => { addToCart(p.id); closeModal(); };
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleModalOverlayClick(e){
+  if(e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+function addToCart(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  cart[id] = cart[id] ? {...cart[id], qty: cart[id].qty+1} : {...p, qty:1};
+  updateCartUI();
+  showToast('✔ '+p.name+' agregado');
+}
+
+function updateCartUI(){
+  const total = Object.values(cart).reduce((s,i)=>s+i.price*i.qty,0);
+  const count = Object.values(cart).reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartCount').textContent = count;
+  const itemsEl = document.getElementById('cartItems');
+  const footerEl = document.getElementById('cartFooter');
+  if(count===0){
+    itemsEl.innerHTML='<div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Tu carrito está vacío.<br>Agregá productos del catálogo.</p></div>';
+    footerEl.style.display='none';
+  } else {
+    footerEl.style.display='block';
+    document.getElementById('cartTotal').textContent=fmt(total);
+    itemsEl.innerHTML=Object.values(cart).map(i=>`
+      <div class="cart-item">
+        <div class="cart-item-swatch" style="background:${swatchColors[i.color]}"></div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${i.name}</div>
+          <div class="cart-item-vol">× ${i.vol}</div>
+          <div class="cart-item-qty">
+            <button class="qty-btn" onclick="changeQty(${i.id},-1)">−</button>
+            <span class="qty-num">${i.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${i.id},1)">+</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+          <span class="cart-item-price">${fmt(i.price*i.qty)}</span>
+          <button class="cart-remove" onclick="removeItem(${i.id})">🗑</button>
+        </div>
+      </div>`).join('');
+  }
+}
+
+function changeQty(id,delta){
+  if(!cart[id]) return;
+  cart[id].qty+=delta;
+  if(cart[id].qty<=0) delete cart[id];
+  updateCartUI();
+}
+function removeItem(id){ delete cart[id]; updateCartUI(); }
+
+function toggleCart(){
+  document.getElementById('cartPanel').classList.toggle('open');
+  document.getElementById('cartOverlay').classList.toggle('open');
+}
+
+function checkout(){
+  const lines = Object.values(cart).map(i=>`• ${i.name} (${i.vol}) x${i.qty} = ${fmt(i.price*i.qty)}`).join('%0A');
+  const total = Object.values(cart).reduce((s,i)=>s+i.price*i.qty,0);
+  const msg = `Hola LQ Factory! Quiero hacer el siguiente pedido:%0A%0A${lines}%0A%0A*Total: ${fmt(total)}*%0A%0AQuedo a la espera de confirmación.`;
+  window.open(`https://wa.me/5493517075757?text=${msg}`,'_blank');
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
+
+document.getElementById('filters').addEventListener('click',e=>{
+  if(!e.target.matches('.filter-btn')) return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderGrid(e.target.dataset.filter);
+});
+
+renderGrid('all');
+updateCartUI();
+
+// ── INTERSECTION OBSERVER ANIMATIONS ──
+const animTargets = document.querySelectorAll(
+  '.why-header-anim, .stat-anim, .card-anim, .contact-anim, .contact-anim-r'
+);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      // Trigger counter if stat
+      if(entry.target.classList.contains('stat-anim')){
+        const el = entry.target.querySelector('.why-stat-num');
+        if(el && !el.dataset.done){
+          el.dataset.done = '1';
+          const target = +el.dataset.target;
+          const duration = 1400;
+          const start = performance.now();
+          const tick = (now) => {
+            const p = Math.min((now - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(ease * target);
+            if(p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      }
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+animTargets.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
