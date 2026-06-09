@@ -1,48 +1,47 @@
 // ══════════════════════════════════════════════════════
-//  LQ FACTORY — script.js
+//  LQ FACTORY — script.js  (v2)
 // ══════════════════════════════════════════════════════
 
-// ─── DATOS DE PRODUCTOS ───────────────────────────────
 const products = [
   {
     id: 1, num: 1,
     name: "Refrigerante Anticongelante Rosa",
-    vol: "5 LTS", price: 10000, cat: "refrigerante", color: "pb-pink",
+    vol: "5 LTS", price: 10000, cat: "refrigerante", color: "pb-pink", img: "./3.png",
     desc: "Refrigerante orgánico (OAT) de alta tecnología. Compatible con motores nafteros, diésel y a gas. Formulado con inhibidores de corrosión de larga duración.",
     specs: [
-      { l: "Norma",       v: "IRAM 113043"       },
-      { l: "Tipo",        v: "Orgánico OAT"       },
-      { l: "Dilución",    v: "Sin diluir (100%)"  },
-      { l: "Temperatura", v: "Hasta −40 °C"       }
+      { l: "Norma",       v: "IRAM 113043"      },
+      { l: "Tipo",        v: "Orgánico OAT"      },
+      { l: "Dilución",    v: "Sin diluir (100%)" },
+      { l: "Temperatura", v: "Hasta −40 °C"      }
     ]
   },
   {
     id: 2, num: 2,
     name: "Refrigerante Anticongelante Verde",
-    vol: "5 LTS", price: 1490, cat: "refrigerante", color: "pb-green", img: "./prd1.png",
+    vol: "5 LTS", price: 1490, cat: "refrigerante", color: "pb-green", img: "./1.png",
     desc: "Refrigerante convencional (IAT) ideal para vehículos con motores de fundición ferrosa. Excelente protección anticorrosión y anticongelante.",
     specs: [
-      { l: "Norma",       v: "IRAM 113043"       },
-      { l: "Tipo",        v: "Convencional IAT"   },
-      { l: "Dilución",    v: "Sin diluir (100%)"  },
-      { l: "Temperatura", v: "Hasta −37 °C"       }
+      { l: "Norma",       v: "IRAM 113043"      },
+      { l: "Tipo",        v: "Convencional IAT"  },
+      { l: "Dilución",    v: "Sin diluir (100%)" },
+      { l: "Temperatura", v: "Hasta −37 °C"      }
     ]
   },
   {
     id: 3, num: 3,
     name: "Refrigerante Anticongelante Amarillo",
-    vol: "5 LTS", price: 1490, cat: "refrigerante", color: "pb-yellow",
+    vol: "5 LTS", price: 1490, cat: "refrigerante", color: "pb-yellow", img: "./2.png",
     desc: "Refrigerante híbrido (HOAT) de última generación. Compatible con motores modernos de aluminio y aleaciones mixtas.",
     specs: [
-      { l: "Norma",       v: "IRAM 113043"       },
-      { l: "Tipo",        v: "Híbrido HOAT"       },
-      { l: "Dilución",    v: "Sin diluir (100%)"  },
-      { l: "Temperatura", v: "Hasta −38 °C"       }
+      { l: "Norma",       v: "IRAM 113043"      },
+      { l: "Tipo",        v: "Híbrido HOAT"      },
+      { l: "Dilución",    v: "Sin diluir (100%)" },
+      { l: "Temperatura", v: "Hasta −38 °C"      }
     ]
   },
   {
     id: 4, num: 4,
-    name: "Refrigerante Anticongelante 30% Rosa",
+    name: "Refrigerante 30% Rosa",
     vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white",
     desc: "Mezcla lista para usar al 30% con agua desmineralizada. Protección anticongelante y anticorrosión sin necesidad de dilución adicional.",
     specs: [
@@ -54,7 +53,7 @@ const products = [
   },
   {
     id: 5, num: 5,
-    name: "Refrigerante Anticongelante 30% Verde",
+    name: "Refrigerante 30% Verde",
     vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white",
     desc: "Mezcla al 30% lista para usar. Formulación convencional para vehículos con sistemas de refrigeración estándar.",
     specs: [
@@ -66,7 +65,7 @@ const products = [
   },
   {
     id: 6, num: 6,
-    name: "Refrigerante Anticongelante 30% Amarillo",
+    name: "Refrigerante 30% Amarillo",
     vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white",
     desc: "Mezcla al 30% lista para usar con tecnología híbrida. Ideal para el clima templado argentino.",
     specs: [
@@ -79,13 +78,13 @@ const products = [
   {
     id: 7, num: 7,
     name: "Agua Desmineralizada LQ",
-    vol: "5 LTS", price: 1240, cat: "agua", color: "pb-clear",
-    desc: "Agua desmineralizada de alta pureza para dilución de refrigerantes y relleno de baterías. Libre de minerales, cloro e impurezas que dañan el sistema de enfriamiento.",
+    vol: "5 LTS", price: 1240, cat: "agua", color: "pb-clear", img: "./5.png",
+    desc: "Agua desmineralizada de alta pureza para dilución de refrigerantes y relleno de baterías. Libre de minerales, cloro e impurezas.",
     specs: [
-      { l: "Conductividad", v: "< 10 μS/cm"           },
-      { l: "pH",            v: "6.5 – 7.5"             },
+      { l: "Conductividad", v: "< 10 μS/cm"            },
+      { l: "pH",            v: "6.5 – 7.5"              },
       { l: "Uso",           v: "Refrigerantes/baterías" },
-      { l: "Contenido",     v: "Sin aditivos"           }
+      { l: "Contenido",     v: "Sin aditivos"            }
     ]
   },
   {
@@ -94,69 +93,69 @@ const products = [
     vol: "500 CC", price: 3100, cat: "frenos", color: "pb-orange",
     desc: "Líquido de frenos a base de glicol éter que cumple la norma DOT 3. Apto para sistemas de frenos hidráulicos convencionales y embragues.",
     specs: [
-      { l: "Norma",              v: "DOT 3 / FMVSS 116"    },
-      { l: "Punto de ebullición", v: "≥ 205 °C"            },
-      { l: "Base",               v: "Glicol éter"           },
-      { l: "Compatibilidad",     v: "ABS / sistemas conv."  }
+      { l: "Norma",               v: "DOT 3 / FMVSS 116"   },
+      { l: "Punto de ebullición",  v: "≥ 205 °C"            },
+      { l: "Base",                v: "Glicol éter"           },
+      { l: "Compatibilidad",      v: "ABS / sistemas conv." }
     ]
   },
   {
     id: 9, num: 9,
     name: "Líquido de Frenos DOT 4 Plus",
     vol: "500 CC", price: 4000, cat: "frenos", color: "pb-red",
-    desc: "Formulación avanzada DOT 4 con punto de ebullición superior. Recomendado para vehículos con exigencia mayor: ABS, ESP, frenos de disco de alto rendimiento.",
+    desc: "Formulación avanzada DOT 4 con punto de ebullición superior. Recomendado para ABS, ESP y frenos de disco de alto rendimiento.",
     specs: [
-      { l: "Norma",              v: "DOT 4 / FMVSS 116"      },
-      { l: "Punto de ebullición", v: "≥ 230 °C"              },
-      { l: "Base",               v: "Glicol éter borado"      },
-      { l: "Compatibilidad",     v: "ABS / ESP / alto rend."  }
+      { l: "Norma",               v: "DOT 4 / FMVSS 116"     },
+      { l: "Punto de ebullición",  v: "≥ 230 °C"              },
+      { l: "Base",                v: "Glicol éter borado"      },
+      { l: "Compatibilidad",      v: "ABS / ESP / alto rend." }
     ]
   },
   {
     id: 10, num: 10,
     name: "Resaltador de Caucho Siliconado",
-    vol: "500 CC", price: 2100, cat: "limpieza", color: "pb-blue", img: "./prod2.png",
-    desc: "Producto siliconado para proteger y resaltar gomas, burletes, paragolpes y plásticos. Deja un acabado brillante y protege contra la decoloración por UV.",
+    vol: "500 CC", price: 2100, cat: "limpieza", color: "pb-blue", img: "./4.png",
+    desc: "Producto siliconado para proteger y resaltar gomas, burletes, paragolpes y plásticos. Acabado brillante con protección UV.",
     specs: [
-      { l: "Contenido",      v: "Silicona activa"  },
-      { l: "Aplicación",     v: "Gomas / plásticos" },
-      { l: "Acabado",        v: "Brillante"          },
-      { l: "Protección UV",  v: "Sí"                 }
+      { l: "Contenido",     v: "Silicona activa"   },
+      { l: "Aplicación",    v: "Gomas / plásticos" },
+      { l: "Acabado",       v: "Brillante"          },
+      { l: "Protección UV", v: "Sí"                 }
     ]
   },
   {
     id: 11, num: 11,
     name: "Lava Cristales",
-    vol: "500 CC", price: 2100, cat: "limpieza", color: "pb-blue",
-    desc: "Limpiador concentrado para limpiaparabrisas. Elimina insectos, polvo y grasa del parabrisas sin rayar. Formulación antiespumante apta para el depósito del vehículo.",
+    vol: "500 CC", price: 2100, cat: "limpieza", color: "pb-blue", img: "./6.png",
+    desc: "Limpiador concentrado para limpiaparabrisas. Elimina insectos, polvo y grasa del parabrisas. Formulación antiespumante para el depósito.",
     specs: [
-      { l: "Dilución",      v: "1:10 con agua"   },
-      { l: "Rendimiento",   v: "≈ 5 L finales"   },
-      { l: "Antiespumante", v: "Sí"               },
-      { l: "Temperatura",   v: "Hasta −5 °C"      }
+      { l: "Dilución",      v: "1:10 con agua" },
+      { l: "Rendimiento",   v: "≈ 5 L finales"  },
+      { l: "Antiespumante", v: "Sí"              },
+      { l: "Temperatura",   v: "Hasta −5 °C"     }
     ]
   },
   {
     id: 12, num: 12,
     name: "Shampoo Siliconado",
     vol: "500 CC", price: 2700, cat: "limpieza", color: "pb-magenta",
-    desc: "Shampoo automotriz con silicona activa que limpia y protege la pintura al mismo tiempo. Genera una capa hidrofóbica que repele el agua y el barro.",
+    desc: "Shampoo automotriz con silicona activa. Limpia y protege la pintura generando una capa hidrofóbica que repele el agua y el barro.",
     specs: [
-      { l: "Con cera",    v: "No"              },
-      { l: "Con silicona", v: "Sí"             },
-      { l: "Dilución",    v: "1:50 recomendado" },
-      { l: "pH",          v: "Neutro 7"         }
+      { l: "Con silicona", v: "Sí"               },
+      { l: "Dilución",     v: "1:50 recomendado" },
+      { l: "pH",           v: "Neutro 7"          },
+      { l: "Acabado",      v: "Hidrofóbico"       }
     ]
   },
   {
     id: 13, num: 13,
     name: "Silicona Protectora",
     vol: "250 CC", price: 2100, cat: "limpieza", color: "pb-lime",
-    desc: "Silicona multiuso en formato spray/líquido para proteger plásticos, gomas y superficies internas. Ideal para tableros, cintas transportadoras y mecanismos.",
+    desc: "Silicona multiuso para proteger plásticos, gomas y superficies internas. Ideal para tableros, cintas transportadoras y mecanismos.",
     specs: [
-      { l: "Presentación", v: "Líquido"                 },
-      { l: "Aplicación",   v: "Interior / exterior"      },
-      { l: "Acabado",      v: "Semimate"                  },
+      { l: "Presentación", v: "Líquido"                  },
+      { l: "Aplicación",   v: "Interior / exterior"       },
+      { l: "Acabado",      v: "Semimate"                   },
       { l: "Superficie",   v: "Plástico / goma / metal"   }
     ]
   }
@@ -181,33 +180,36 @@ let cart = {};
 function fmt(n) {
   return '$' + n.toLocaleString('es-AR');
 }
-
 function catLabel(c) {
   return { refrigerante: 'Refrigerante', frenos: 'Frenos', limpieza: 'Estética', agua: 'Agua' }[c] || c;
 }
+function padNum(n) {
+  return String(n).padStart(3, '0');
+}
 
-// ─── GRILLA DE PRODUCTOS ──────────────────────────────
+// ─── PRODUCT GRID ─────────────────────────────────────
 function renderGrid(filter) {
   const grid = document.getElementById('productGrid');
   const list = filter === 'all' ? products : products.filter(p => p.cat === filter);
   grid.innerHTML = list.map(p => `
     <div class="product-card">
-      <div class="product-card-header">
-        <div class="product-num">${p.num}</div>
-        <div class="product-category-tag">${catLabel(p.cat)}</div>
+      <div class="product-card-top">
+        <span class="product-num-tag">№ ${padNum(p.num)}</span>
+        <span class="product-cat-tag">${catLabel(p.cat)}</span>
       </div>
       <div class="product-visual" onclick="openModal(${p.id})">
         ${p.img
           ? `<img src="${p.img}" alt="${p.name}" class="product-real-img">`
           : `<div class="pb ${p.color}"></div>`}
+        ${p.img ? `<button class="product-eye-btn" onclick="event.stopPropagation();openViewer(${p.id})" title="Vista 3D">👁</button>` : ''}
       </div>
       <div class="product-info" onclick="openModal(${p.id})">
         <div class="product-name">${p.name}</div>
         <div class="product-volume">Envase × ${p.vol}</div>
       </div>
       <div class="product-footer">
-        <div class="product-price">${fmt(p.price)}<span> ×${p.vol}</span></div>
-        <button class="add-btn" onclick="addToCart(${p.id})" title="Agregar">+</button>
+        <div class="product-price">${fmt(p.price)}<span> / ${p.vol}</span></div>
+        <button class="add-btn" onclick="addToCart(${p.id})" title="Agregar al carrito">+</button>
       </div>
     </div>`).join('');
 }
@@ -217,18 +219,22 @@ function openModal(id) {
   const p = products.find(x => x.id === id);
   if (!p) return;
 
-  document.getElementById('modalNum').textContent  = p.num;
-  document.getElementById('modalCat').textContent  = catLabel(p.cat);
-  document.getElementById('modalName').textContent = p.name;
-  document.getElementById('modalVol').textContent  = 'Envase × ' + p.vol;
-  document.getElementById('modalPrice').innerHTML  = fmt(p.price) + '<small> / unidad</small>';
-  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalRef').textContent   = `REF. ${padNum(p.num)} · ${catLabel(p.cat).toUpperCase()}`;
+  document.getElementById('modalName').textContent  = p.name;
+  document.getElementById('modalVol').textContent   = `Envase × ${p.vol}`;
+  document.getElementById('modalPrice').innerHTML   = fmt(p.price) + '<small> / unidad</small>';
+  document.getElementById('modalDesc').textContent  = p.desc;
 
-  const bottle = document.getElementById('modalBottle');
+  // bottle or image
+  const existing = document.getElementById('modalBottle');
   if (p.img) {
-    bottle.outerHTML = `<img id="modalBottle" src="${p.img}" alt="${p.name}" class="modal-real-img">`;
+    const img = document.createElement('img');
+    img.id = 'modalBottle';
+    img.src = p.img;
+    img.alt = p.name;
+    img.className = 'modal-real-img';
+    existing.replaceWith(img);
   } else {
-    const existing = document.getElementById('modalBottle');
     if (existing.tagName === 'IMG') {
       const div = document.createElement('div');
       div.id = 'modalBottle';
@@ -247,6 +253,13 @@ function openModal(id) {
   ).join('');
 
   document.getElementById('modalAddBtn').onclick = () => { addToCart(p.id); closeModal(); };
+  const btn3D = document.getElementById('modal3DBtn');
+  if (p.img) {
+    btn3D.style.display = 'block';
+    btn3D.onclick = () => { closeModal(); openViewer(p.id); };
+  } else {
+    btn3D.style.display = 'none';
+  }
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -262,23 +275,21 @@ function handleModalOverlayClick(e) {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// ─── CARRITO ──────────────────────────────────────────
+// ─── CART ─────────────────────────────────────────────
 function addToCart(id) {
   const p = products.find(x => x.id === id);
   if (!p) return;
   cart[id] = cart[id] ? { ...cart[id], qty: cart[id].qty + 1 } : { ...p, qty: 1 };
   updateCartUI();
-  showToast('✔ ' + p.name + ' agregado');
+  showToast('Agregado — ' + p.name);
 }
 
 function updateCartUI() {
   const total = Object.values(cart).reduce((s, i) => s + i.price * i.qty, 0);
   const count = Object.values(cart).reduce((s, i) => s + i.qty, 0);
   document.getElementById('cartCount').textContent = count;
-
   const itemsEl  = document.getElementById('cartItems');
   const footerEl = document.getElementById('cartFooter');
-
   if (count === 0) {
     itemsEl.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Tu carrito está vacío.<br>Agregá productos del catálogo.</p></div>';
     footerEl.style.display = 'none';
@@ -299,7 +310,7 @@ function updateCartUI() {
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
           <span class="cart-item-price">${fmt(i.price * i.qty)}</span>
-          <button class="cart-remove" onclick="removeItem(${i.id})">🗑</button>
+          <button class="cart-remove" onclick="removeItem(${i.id})">✕</button>
         </div>
       </div>`).join('');
   }
@@ -336,7 +347,7 @@ function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2200);
+  setTimeout(() => t.classList.remove('show'), 2400);
 }
 
 // ─── FILTROS ──────────────────────────────────────────
@@ -347,28 +358,27 @@ document.getElementById('filters').addEventListener('click', e => {
   renderGrid(e.target.dataset.filter);
 });
 
-// ─── ANIMACIONES AL HACER SCROLL ─────────────────────
-const animTargets = document.querySelectorAll(
-  '.why-header-anim, .stat-anim, .card-anim, .contact-anim, .contact-anim-r'
-);
-
+// ─── SCROLL ANIMATIONS ────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     entry.target.classList.add('visible');
 
-    // Contador animado en stats
+    // animated counter for stats
     if (entry.target.classList.contains('stat-anim')) {
       const el = entry.target.querySelector('.why-stat-num');
       if (el && !el.dataset.done) {
         el.dataset.done = '1';
         const target   = +el.dataset.target;
+        const sup      = el.querySelector('sup');
+        const supHtml  = sup ? sup.outerHTML : '';
         const duration = 1400;
         const start    = performance.now();
         const tick = (now) => {
-          const p    = Math.min((now - start) / duration, 1);
+          const p   = Math.min((now - start) / duration, 1);
           const ease = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(ease * target);
+          const val  = Math.round(ease * target);
+          el.innerHTML = val + supHtml;
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -377,10 +387,116 @@ const observer = new IntersectionObserver((entries) => {
 
     observer.unobserve(entry.target);
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.12 });
 
-animTargets.forEach(el => observer.observe(el));
+document.querySelectorAll(
+  '.reveal, .why-header-anim, .stat-anim, .card-anim, .contact-anim, .contact-anim-r'
+).forEach(el => observer.observe(el));
 
 // ─── INIT ─────────────────────────────────────────────
 renderGrid('all');
 updateCartUI();
+
+// ─── 3D VIEWER ────────────────────────────────
+let viewerActive = false;
+let rotX = 0, rotY = 0;
+let startX = 0, startY = 0;
+let isDragging = false;
+let velX = 0, velY = 0;
+let lastX = 0, lastY = 0;
+let rafId = null;
+
+function openViewer(id) {
+  const p = products.find(x => x.id === id);
+  if (!p || !p.img) return;
+
+  document.getElementById('viewerImg').src   = p.img;
+  document.getElementById('viewerImg').alt   = p.name;
+  document.getElementById('viewerName').textContent = p.name;
+  document.getElementById('viewerRef').textContent  = `REF. ${padNum(p.num)} · Vista 360°`;
+
+  rotX = 0; rotY = 15; velX = 0; velY = 0;
+  applyRotation();
+
+  document.getElementById('viewerOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  viewerActive = true;
+  startIdleFloat();
+}
+
+function closeViewer() {
+  document.getElementById('viewerOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  viewerActive = false;
+  cancelAnimationFrame(rafId);
+}
+
+function handleViewerOverlayClick(e) {
+  if (e.target === document.getElementById('viewerOverlay')) closeViewer();
+}
+
+function applyRotation() {
+  const obj = document.getElementById('viewerObject');
+  // clamp vertical rotation so product doesn't flip upside-down
+  rotX = Math.max(-38, Math.min(38, rotX));
+  obj.style.transform = `rotateX(${-rotX}deg) rotateY(${rotY}deg)`;
+}
+
+// Idle gentle float when not dragging
+function startIdleFloat() {
+  if (!viewerActive) return;
+  if (!isDragging) {
+    velY += 0.04;
+    rotY += velY * 0.06;
+    velY *= 0.98;
+    // subtle bob
+    rotX += Math.sin(Date.now() / 2200) * 0.015;
+    applyRotation();
+  }
+  rafId = requestAnimationFrame(startIdleFloat);
+}
+
+// Mouse
+const stage = document.getElementById('viewerStage');
+stage.addEventListener('mousedown', e => {
+  isDragging = true;
+  startX = e.clientX; startY = e.clientY;
+  lastX = e.clientX; lastY = e.clientY;
+  velX = 0; velY = 0;
+  e.preventDefault();
+});
+window.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+  velX = dy * 0.4;
+  velY = dx * 0.4;
+  rotX += velX;
+  rotY += velY;
+  lastX = e.clientX; lastY = e.clientY;
+  applyRotation();
+});
+window.addEventListener('mouseup', () => { isDragging = false; });
+
+// Touch
+stage.addEventListener('touchstart', e => {
+  isDragging = true;
+  startX = e.touches[0].clientX; startY = e.touches[0].clientY;
+  lastX = startX; lastY = startY;
+  velX = 0; velY = 0;
+}, { passive: true });
+window.addEventListener('touchmove', e => {
+  if (!isDragging) return;
+  const dx = e.touches[0].clientX - lastX;
+  const dy = e.touches[0].clientY - lastY;
+  velX = dy * 0.4;
+  velY = dx * 0.4;
+  rotX += velX;
+  rotY += velY;
+  lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+  applyRotation();
+}, { passive: true });
+window.addEventListener('touchend', () => { isDragging = false; });
+
+// Escape closes viewer
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeViewer(); closeModal(); } });

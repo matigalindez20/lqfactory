@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LQ Factory – Líquidos para el automotor</title>
+<title>LQ Factory — Líquidos para el automotor</title>
 <link rel="stylesheet" href="./style.css">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+<!-- ═══ NAV ═══════════════════════════════════════════════════════════════ -->
 <nav>
   <a class="nav-logo" href="#">
-    <img src="./logo.png" alt="LQ Factory" class="lq-logo-img">
+    <img src="./logo.png" alt="LQ Factory" class="nav-logo-img">
   </a>
   <ul>
     <li><a href="#productos">Productos</a></li>
@@ -20,36 +19,123 @@
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <button class="cart-btn" onclick="toggleCart()">
-    🛒 Carrito <span class="cart-count" id="cartCount">0</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    Carrito
+    <span class="cart-count" id="cartCount">0</span>
   </button>
 </nav>
 
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<!-- ═══ HERO ════════════════════════════════════════════════════════════════ -->
 <div class="hero">
+  <canvas id="heroBg" class="hero-canvas"></canvas>
+  <div class="hero-bg-mark">LQ</div>
 
-  <div class="hero-text">
-    <div class="hero-eyebrow">Quality in Liquid · 25 años en el mercado</div>
-    <h1>Línea de <em>químicos</em><br>para el máximo<br>rendimiento</h1>
-    <p>Fabricamos y distribuimos refrigerantes, líquidos de frenos y artículos de limpieza automotriz con los más altos estándares de calidad.</p>
-    <div class="hero-badges">
-      <div class="badge">🏅 Certificado IRAM</div>
-      <div class="badge">🚚 Logística nacional</div>
-      <div class="badge">💬 Atención directa</div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>Quality in Liquid · Córdoba, Argentina</span>
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="line">Química de</span>
+        <span class="line"><em class="accent">alto</em></span>
+        <span class="line">rendimiento</span>
+      </h1>
+
+      <p class="hero-sub">
+        Fabricamos y distribuimos refrigerantes, líquidos de frenos y artículos de limpieza automotriz con los estándares más exigentes del mercado.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#productos" class="btn-primary">
+          Ver catálogo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#contacto" class="btn-ghost">
+          Contacto directo
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <span class="hero-badge-val">25</span>
+          <span class="hero-badge-label">Años en el mercado</span>
+        </div>
+        <div class="hero-badge">
+          <span class="hero-badge-val">13</span>
+          <span class="hero-badge-label">Productos en línea</span>
+        </div>
+        <div class="hero-badge">
+          <span class="hero-badge-val">23</span>
+          <span class="hero-badge-label">Provincias</span>
+        </div>
+        <div class="hero-badge">
+          <span class="hero-badge-val">IRAM</span>
+          <span class="hero-badge-label">Certificado</span>
+        </div>
+      </div>
     </div>
-    <a href="#productos" class="hero-cta">Ver catálogo completo ↓</a>
+
+    <div class="hero-visual">
+      <!-- productos desfilando por detrás -->
+      <div class="hero-carousel-wrap">
+        <div class="hero-carousel" id="heroCarousel">
+          <div class="hero-carousel-track" id="heroTrack">
+            <img src="./1.png"  alt="" class="hc-img">
+            <img src="./2.png"  alt="" class="hc-img">
+            <img src="./3.png"  alt="" class="hc-img">
+            <img src="./4.png"  alt="" class="hc-img">
+            <img src="./5.png"  alt="" class="hc-img">
+            <img src="./6.png"  alt="" class="hc-img">
+            <!-- duplicados para loop infinito -->
+            <img src="./1.png"  alt="" class="hc-img">
+            <img src="./2.png"  alt="" class="hc-img">
+            <img src="./3.png"  alt="" class="hc-img">
+            <img src="./4.png"  alt="" class="hc-img">
+            <img src="./5.png"  alt="" class="hc-img">
+            <img src="./6.png"  alt="" class="hc-img">
+          </div>
+        </div>
+        <!-- foto principal encima -->
+        <img src="./TODO_EL_PORTAFOLIO.png" alt="Línea completa LQ Factory" class="hero-portfolio-img">
+      </div>
+    </div>
   </div>
-  <div class="hero-visual">
-    <img src="./TODO_EL_PORTAFOLIO.png" alt="Línea completa LQ Factory" class="hero-portfolio-img">
+
+  <!-- ticker -->
+  <div class="hero-ticker">
+    <div class="hero-ticker-track">
+      <span>Refrigerante Anticongelante <em>·</em></span>
+      <span>Líquido de Frenos DOT 4 <em>·</em></span>
+      <span>Certificado IRAM <em>·</em></span>
+      <span>Estética Automotriz <em>·</em></span>
+      <span>25 años en el mercado <em>·</em></span>
+      <span>Fabricación 100% propia <em>·</em></span>
+      <span>Logística nacional <em>·</em></span>
+      <span>Agua Desmineralizada <em>·</em></span>
+      <span>Refrigerante Anticongelante <em>·</em></span>
+      <span>Líquido de Frenos DOT 4 <em>·</em></span>
+      <span>Certificado IRAM <em>·</em></span>
+      <span>Estética Automotriz <em>·</em></span>
+      <span>25 años en el mercado <em>·</em></span>
+      <span>Fabricación 100% propia <em>·</em></span>
+      <span>Logística nacional <em>·</em></span>
+      <span>Agua Desmineralizada <em>·</em></span>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════ PRODUCTOS ═══════════════════════════════ -->
-<section id="productos" style="background:#F4F6F8;">
+<!-- ═══ PRODUCTOS ════════════════════════════════════════════════════════ -->
+<section id="productos">
   <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Catálogo 2025</div>
-      <div class="section-title">Nuestros Productos</div>
+    <div class="section-label reveal">
+      <div class="section-label-line"></div>
+      <span>Catálogo 2025</span>
     </div>
+    <div class="section-title reveal">Nuestros productos</div>
+
     <div class="filters" id="filters">
       <button class="filter-btn active" data-filter="all">Todos</button>
       <button class="filter-btn" data-filter="refrigerante">Refrigerantes</button>
@@ -57,82 +143,102 @@
       <button class="filter-btn" data-filter="limpieza">Estética</button>
       <button class="filter-btn" data-filter="agua">Agua</button>
     </div>
+
     <div class="product-grid" id="productGrid"></div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════ NOSOTROS ═══════════════════════════════ -->
+<!-- ═══ NOSOTROS ══════════════════════════════════════════════════════════ -->
 <section id="por-que" class="why-section">
   <div class="container">
-    <div class="section-header why-header-anim">
-      <div class="section-eyebrow" style="color:#C8192E;">¿Por qué elegirnos?</div>
-      <div class="section-title" style="color:white;">Calidad que se siente</div>
+    <div class="section-label reveal">
+      <div class="section-label-line"></div>
+      <span>¿Por qué elegirnos?</span>
     </div>
-    <div class="why-stats">
-      <div class="why-stat stat-anim" style="--d:0ms">
-        <div class="why-stat-num" data-target="25">0</div>
-        <div class="why-stat-label">Años en el mercado</div>
+    <div class="section-title section-title-inv reveal">Calidad que se siente</div>
+
+    <div class="why-grid">
+      <div class="why-left">
+        <p class="why-tagline">
+          Más de dos décadas fabricando líquidos para el automotor con formulaciones propias, sin intermediarios y con certificación IRAM.
+        </p>
+        <a href="#contacto" class="why-cta-link">
+          Hacer un pedido
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
-      <div class="why-stat stat-anim" style="--d:120ms">
-        <div class="why-stat-num" data-target="13">0</div>
-        <div class="why-stat-label">Productos en línea</div>
-      </div>
-      <div class="why-stat stat-anim" style="--d:240ms">
-        <div class="why-stat-num" data-target="100">0</div>
-        <div class="why-stat-label">% fabricación propia</div>
-      </div>
-      <div class="why-stat stat-anim" style="--d:360ms">
-        <div class="why-stat-num" data-target="23">0</div>
-        <div class="why-stat-label">Provincias con cobertura</div>
-      </div>
-    </div>
-    <div class="why-cards-new">
-      <div class="why-card-new card-anim" style="--d:0ms">
-        <div class="why-card-icon-wrap"><span class="why-card-icon">🏭</span></div>
-        <div class="why-card-content">
-          <div class="why-card-title">Fabricación propia</div>
-          <div class="why-card-desc">Envases con matricería y diseño propio. Cada producto 100% original y sin adulteraciones.</div>
+
+      <div class="why-right">
+        <div class="why-stats-row">
+          <div class="why-stat stat-anim" style="--d:0ms">
+            <div class="why-stat-num" data-target="25">0</div>
+            <div class="why-stat-label">Años</div>
+          </div>
+          <div class="why-stat stat-anim" style="--d:100ms">
+            <div class="why-stat-num" data-target="13">0</div>
+            <div class="why-stat-label">Productos</div>
+          </div>
+          <div class="why-stat stat-anim" style="--d:200ms">
+            <div class="why-stat-num" data-target="100">0<sup>%</sup></div>
+            <div class="why-stat-label">Fabricación propia</div>
+          </div>
+          <div class="why-stat stat-anim" style="--d:300ms">
+            <div class="why-stat-num" data-target="23">0</div>
+            <div class="why-stat-label">Provincias</div>
+          </div>
         </div>
-        <div class="why-card-line"></div>
-      </div>
-      <div class="why-card-new card-anim" style="--d:100ms">
-        <div class="why-card-icon-wrap"><span class="why-card-icon">🏅</span></div>
-        <div class="why-card-content">
-          <div class="why-card-title">Certificado IRAM</div>
-          <div class="why-card-desc">Cumplimos las normas más exigentes del mercado automotriz argentino.</div>
+
+        <div class="why-pillars">
+          <div class="why-pillar card-anim" style="--d:0ms">
+            <div class="why-pillar-icon">🏭</div>
+            <div>
+              <div class="why-pillar-title">Fabricación propia</div>
+              <div class="why-pillar-desc">Envases con matricería y diseño propio. Cada producto 100 % original, sin adulteraciones ni tercerización.</div>
+            </div>
+          </div>
+          <div class="why-pillar card-anim" style="--d:80ms">
+            <div class="why-pillar-icon">🏅</div>
+            <div>
+              <div class="why-pillar-title">Certificado IRAM</div>
+              <div class="why-pillar-desc">Cumplimos las normas más exigentes del mercado automotriz argentino en todas nuestras líneas.</div>
+            </div>
+          </div>
+          <div class="why-pillar card-anim" style="--d:160ms">
+            <div class="why-pillar-icon">🚚</div>
+            <div>
+              <div class="why-pillar-title">Logística nacional</div>
+              <div class="why-pillar-desc">Enviamos a todo el país con seguimiento y tiempos de entrega concretos. Correo + flete propio.</div>
+            </div>
+          </div>
+          <div class="why-pillar card-anim" style="--d:240ms">
+            <div class="why-pillar-icon">🤝</div>
+            <div>
+              <div class="why-pillar-title">Trato directo</div>
+              <div class="why-pillar-desc">Sin intermediarios. Atendemos distribuidores, autopartes y talleres de forma personalizada.</div>
+            </div>
+          </div>
         </div>
-        <div class="why-card-line"></div>
-      </div>
-      <div class="why-card-new card-anim" style="--d:200ms">
-        <div class="why-card-icon-wrap"><span class="why-card-icon">🚚</span></div>
-        <div class="why-card-content">
-          <div class="why-card-title">Logística nacional</div>
-          <div class="why-card-desc">Enviamos a todo el país con seguimiento y tiempos de entrega concretos.</div>
-        </div>
-        <div class="why-card-line"></div>
-      </div>
-      <div class="why-card-new card-anim" style="--d:300ms">
-        <div class="why-card-icon-wrap"><span class="why-card-icon">🤝</span></div>
-        <div class="why-card-content">
-          <div class="why-card-title">Atención personalizada</div>
-          <div class="why-card-desc">Tratamos cada pedido de forma directa, sin intermediarios. Más de 25 años de experiencia.</div>
-        </div>
-        <div class="why-card-line"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════ CONTACTO ═══════════════════════════════ -->
+<!-- ═══ CONTACTO ══════════════════════════════════════════════════════════ -->
 <section id="contacto" class="contact-section">
   <div class="container">
+    <div class="section-label reveal">
+      <div class="section-label-line"></div>
+      <span>Contacto directo</span>
+    </div>
+    <div class="section-title reveal">Hablemos de tu pedido</div>
+
     <div class="contact-grid">
-      <div class="contact-left contact-anim">
-        <div class="section-eyebrow">Contacto directo</div>
-        <h2 class="contact-title">Hablemos de<br><em>tu pedido</em></h2>
-        <p class="contact-sub">Atendemos distribuidores, autopartes y talleres en todo el país. Sin intermediarios, sin demoras.</p>
+      <div class="contact-anim">
+        <p class="contact-desc">
+          Atendemos distribuidores, autopartes y talleres en todo el país. Sin intermediarios, sin demoras. De lunes a viernes de 8 a 18 hs.
+        </p>
         <div class="contact-channels">
-          <a href="https://wa.me/5493517075757" target="_blank" class="contact-channel wsp">
+          <a href="https://wa.me/5493517075757" target="_blank" class="contact-channel">
             <div class="channel-icon">💬</div>
             <div class="channel-info">
               <div class="channel-label">WhatsApp</div>
@@ -140,7 +246,7 @@
             </div>
             <div class="channel-arrow">→</div>
           </a>
-          <a href="mailto:lqfabrica@gmail.com" class="contact-channel mail">
+          <a href="mailto:lqfabrica@gmail.com" class="contact-channel">
             <div class="channel-icon">✉️</div>
             <div class="channel-info">
               <div class="channel-label">Email</div>
@@ -148,7 +254,7 @@
             </div>
             <div class="channel-arrow">→</div>
           </a>
-          <a href="https://www.instagram.com/lq.factory/" target="_blank" class="contact-channel insta">
+          <a href="https://www.instagram.com/lq.factory/" target="_blank" class="contact-channel">
             <div class="channel-icon">📸</div>
             <div class="channel-info">
               <div class="channel-label">Instagram</div>
@@ -158,13 +264,14 @@
           </a>
         </div>
       </div>
-      <div class="contact-right contact-anim-r">
+
+      <div class="contact-anim-r">
         <div class="contact-card">
           <div class="contact-card-header">
-            <div class="lq-emblem-sm">LQ</div>
+            <div class="lq-mark-sm">LQ</div>
             <div>
               <div class="contact-card-brand">LQ Factory</div>
-              <div class="contact-card-sub">Quality in Liquid · Córdoba, Argentina</div>
+              <div class="contact-card-sub">Quality in Liquid · Córdoba</div>
             </div>
           </div>
           <div class="contact-divider"></div>
@@ -187,7 +294,7 @@
             </div>
           </div>
           <a href="https://wa.me/5493517075757?text=Hola%20LQ%20Factory!%20Quiero%20hacer%20un%20pedido." target="_blank" class="contact-wsp-btn">
-            Hacer pedido por WhatsApp 📲
+            Hacer pedido por WhatsApp →
           </a>
         </div>
       </div>
@@ -195,23 +302,27 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<!-- ═══ FOOTER ════════════════════════════════════════════════════════════ -->
 <footer>
-  <div class="footer-logo">LQ <span>Factory</span></div>
-  <p>Fabricantes y distribuidores de líquidos para frenos, refrigerantes y artículos de limpieza automotriz.</p>
-  <div class="footer-links">
-    <a href="mailto:lqfabrica@gmail.com">lqfabrica@gmail.com</a>
-    <a href="https://www.instagram.com/lq.factory/" target="_blank">@lq.factory</a>
-    <a href="https://lqfactory.com.ar" target="_blank">lqfactory.com.ar</a>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">LQ <span>Factory</span></div>
+      <p class="footer-copy">Fabricantes y distribuidores de líquidos para el automotor.<br>Córdoba, Argentina · Desde 2000.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:lqfabrica@gmail.com">lqfabrica@gmail.com</a>
+      <a href="https://www.instagram.com/lq.factory/" target="_blank">@lq.factory</a>
+      <a href="https://lqfactory.com.ar" target="_blank">lqfactory.com.ar</a>
+    </div>
+    <p style="font-size:11px; letter-spacing:1px;">© 2025 LQ Factory</p>
   </div>
-  <p style="font-size:13px;margin-top:8px">© 2025 LQ Factory · Quality in Liquid · Córdoba, Argentina</p>
 </footer>
 
-<!-- ═══════════════════════════════ CARRITO ═══════════════════════════════ -->
+<!-- ═══ CART ═══════════════════════════════════════════════════════════════ -->
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 <div class="cart-panel" id="cartPanel">
   <div class="cart-header">
-    <h2>🛒 Tu carrito</h2>
+    <h2>Carrito</h2>
     <button class="cart-close" onclick="toggleCart()">✕</button>
   </div>
   <div class="cart-items" id="cartItems">
@@ -225,30 +336,31 @@
       <span class="cart-total-label">Total estimado</span>
       <span class="cart-total-price" id="cartTotal">$0</span>
     </div>
-    <button class="checkout-btn" onclick="checkout()">Pedir por WhatsApp 📲</button>
-    <p class="cart-note">Te contactaremos para confirmar disponibilidad y coordinar el pago y envío.</p>
+    <button class="checkout-btn" onclick="checkout()">Pedir por WhatsApp →</button>
+    <p class="cart-note">Confirmamos disponibilidad, pago y envío por mensaje.</p>
   </div>
 </div>
 
-<!-- ═══════════════════════════════ TOAST ═══════════════════════════════ -->
+<!-- ═══ TOAST ══════════════════════════════════════════════════════════════ -->
 <div class="toast" id="toast"></div>
 
-<!-- ═══════════════════════════════ MODAL ═══════════════════════════════ -->
+<!-- ═══ MODAL ══════════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modalOverlay" onclick="handleModalOverlayClick(event)">
   <div class="modal" id="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-strip"></div>
     <div class="modal-header" id="modalHeader">
       <div class="modal-visual" id="modalVisual">
         <div class="pb" id="modalBottle"></div>
       </div>
       <div class="modal-head-info">
-        <div class="modal-num-tag">
-          <div class="modal-num" id="modalNum"></div>
-          <div class="modal-cat" id="modalCat"></div>
+        <div class="modal-ref">
+          <div class="modal-ref-dot"></div>
+          <span id="modalRef">REF. 001 · REFRIGERANTE</span>
         </div>
         <div class="modal-name" id="modalName"></div>
         <div class="modal-vol" id="modalVol"></div>
       </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-price-row">
@@ -256,15 +368,167 @@
         <div class="modal-price" id="modalPrice"></div>
       </div>
       <p class="modal-desc" id="modalDesc"></p>
-      <div class="modal-specs" id="modalSpecs"></div>
+      <div class="modal-specs-title">Ficha técnica</div>
+      <div class="modal-specs-grid" id="modalSpecs"></div>
       <div class="modal-actions">
         <button class="modal-add-btn" id="modalAddBtn">+ Agregar al carrito</button>
-        <button class="modal-secondary-btn" onclick="closeModal()">Volver</button>
+        <button class="modal-secondary-btn" id="modal3DBtn" style="display:none" onclick="closeModal()">👁 Vista 3D</button>
+        <button class="modal-back-btn" onclick="closeModal()">Volver</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- ═══ 3D VIEWER ════════════════════════════════════════════════════════ -->
+<div class="viewer-overlay" id="viewerOverlay" onclick="handleViewerOverlayClick(event)">
+  <div class="viewer-header">
+    <span id="viewerRef"></span>
+  </div>
+  <button class="viewer-close" onclick="closeViewer()">✕</button>
+  <div class="viewer-stage" id="viewerStage">
+    <div class="viewer-shadow"></div>
+    <div class="viewer-object" id="viewerObject">
+      <img id="viewerImg" src="" alt="">
+    </div>
+  </div>
+  <div class="viewer-name" id="viewerName"></div>
+  <div class="viewer-hint">
+    <div class="viewer-hint-dot"></div>
+    Arrastrá para rotar
+    <div class="viewer-hint-dot"></div>
+  </div>
+</div>
+
 <script src="./script.js"></script>
+<script>
+// ── HERO BACKGROUND CANVAS ──────────────────────────
+(function() {
+  const canvas = document.getElementById('heroBg');
+  const ctx    = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', () => { resize(); initParticles(); });
+
+  // Diagonal speed-lines (static, drawn once per resize)
+  function drawLines() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Base gradient — dark charcoal with subtle warm red depth
+    const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    grad.addColorStop(0,   '#0A0C0F');
+    grad.addColorStop(0.5, '#130810');
+    grad.addColorStop(1,   '#0D0D0F');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Subtle diagonal speed-stripe lines (top-left to bottom-right)
+    ctx.save();
+    ctx.strokeStyle = 'rgba(200,25,46,0.04)';
+    ctx.lineWidth   = 1;
+    const step = 38;
+    for (let x = -canvas.height; x < canvas.width + canvas.height; x += step) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x + canvas.height * 1.1, canvas.height);
+      ctx.stroke();
+    }
+    // Wider spaced brighter lines
+    ctx.strokeStyle = 'rgba(200,25,46,0.07)';
+    ctx.lineWidth   = 1.5;
+    for (let x = -canvas.height; x < canvas.width + canvas.height; x += step * 5) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x + canvas.height * 1.1, canvas.height);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // Radial glow — top-left (red), bottom-right (subtle blue-grey)
+    const g1 = ctx.createRadialGradient(
+      canvas.width * 0.15, canvas.height * 0.3, 0,
+      canvas.width * 0.15, canvas.height * 0.3, canvas.width * 0.55
+    );
+    g1.addColorStop(0,   'rgba(180,15,30,0.18)');
+    g1.addColorStop(1,   'rgba(0,0,0,0)');
+    ctx.fillStyle = g1;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const g2 = ctx.createRadialGradient(
+      canvas.width * 0.85, canvas.height * 0.7, 0,
+      canvas.width * 0.85, canvas.height * 0.7, canvas.width * 0.4
+    );
+    g2.addColorStop(0,   'rgba(30,40,60,0.35)');
+    g2.addColorStop(1,   'rgba(0,0,0,0)');
+    ctx.fillStyle = g2;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  // Floating particles
+  const PARTICLE_COUNT = 55;
+  let particles = [];
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push(makeParticle(true));
+    }
+  }
+
+  function makeParticle(random) {
+    const isRed = Math.random() < 0.3;
+    return {
+      x:     random ? Math.random() * canvas.width  : (Math.random() < 0.5 ? 0 : canvas.width),
+      y:     random ? Math.random() * canvas.height : Math.random() * canvas.height,
+      r:     Math.random() * 1.6 + 0.4,
+      vx:    (Math.random() - 0.5) * 0.3,
+      vy:    (Math.random() - 0.7) * 0.25,
+      alpha: Math.random() * 0.5 + 0.15,
+      color: isRed
+        ? `rgba(200,25,46,`
+        : `rgba(${180 + Math.floor(Math.random()*40)},${185+Math.floor(Math.random()*30)},${195+Math.floor(Math.random()*30)},`,
+      life:  0,
+      maxLife: 180 + Math.random() * 300,
+    };
+  }
+
+  function animateParticles() {
+    drawLines();
+    particles.forEach((p, i) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life++;
+
+      // fade in/out
+      const t    = p.life / p.maxLife;
+      const fade = t < 0.15 ? t / 0.15 : t > 0.75 ? 1 - (t - 0.75) / 0.25 : 1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (p.alpha * fade).toFixed(2) + ')';
+      ctx.fill();
+
+      if (p.life >= p.maxLife) particles[i] = makeParticle(false);
+    });
+
+    // Subtle horizontal scan-line
+    const scanY = (Date.now() * 0.02) % canvas.height;
+    const sg = ctx.createLinearGradient(0, scanY - 60, 0, scanY + 60);
+    sg.addColorStop(0,   'rgba(200,25,46,0)');
+    sg.addColorStop(0.5, 'rgba(200,25,46,0.025)');
+    sg.addColorStop(1,   'rgba(200,25,46,0)');
+    ctx.fillStyle = sg;
+    ctx.fillRect(0, scanY - 60, canvas.width, 120);
+
+    requestAnimationFrame(animateParticles);
+  }
+
+  initParticles();
+  animateParticles();
+})();
+</script>
 </body>
 </html>
