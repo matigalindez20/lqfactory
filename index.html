@@ -8,27 +8,27 @@
 </head>
 <body>
 
-<!-- ═══ NAV ═══════════════════════════════════════════════════════════════ -->
-<nav>
-  <a class="nav-logo" href="#">
-    <img src="./logo.png" alt="LQ Factory" class="nav-logo-img">
-  </a>
-  <ul>
-    <li><a href="#productos">Productos</a></li>
-    <li><a href="#por-que">Nosotros</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <button class="cart-btn" onclick="toggleCart()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-    Carrito
-    <span class="cart-count" id="cartCount">0</span>
-  </button>
-</nav>
-
-<!-- ═══ HERO ════════════════════════════════════════════════════════════════ -->
+<!-- ═══ HERO + NAV (unified block) ══════════════════════════════════════════ -->
 <div class="hero">
   <canvas id="heroBg" class="hero-canvas"></canvas>
   <div class="hero-bg-mark">LQ</div>
+
+  <!-- NAV flotando dentro del hero -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <img src="./lgo blanco (1).png" alt="LQ Factory" class="nav-logo-img">
+    </a>
+    <ul>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#por-que">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="cart-btn" onclick="toggleCart()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      Carrito
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </nav>
 
   <div class="hero-inner">
     <div class="hero-text">
@@ -132,7 +132,7 @@
   <div class="container">
     <div class="section-label reveal">
       <div class="section-label-line"></div>
-      <span>Catálogo 2025</span>
+      <span>Catálogo 2026</span>
     </div>
     <div class="section-title reveal">Nuestros productos</div>
 
@@ -150,96 +150,78 @@
 
 <!-- ═══ NOSOTROS ══════════════════════════════════════════════════════════ -->
 <section id="por-que" class="why-section">
-  <div class="container">
-    <div class="section-label reveal">
-      <div class="section-label-line"></div>
-      <span>¿Por qué elegirnos?</span>
-    </div>
-    <div class="section-title section-title-inv reveal">Calidad que se siente</div>
 
-    <div class="why-grid">
-      <div class="why-left">
-        <p class="why-tagline">
-          Más de dos décadas fabricando líquidos para el automotor con formulaciones propias, sin intermediarios y con certificación IRAM.
-        </p>
-        <a href="#contacto" class="why-cta-link">
-          Hacer un pedido
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+  <!-- Slashes rojos de fondo -->
+  <div class="why-slashes" aria-hidden="true">
+    <div class="why-slash" style="--i:0"></div>
+    <div class="why-slash" style="--i:1"></div>
+    <div class="why-slash" style="--i:2"></div>
+  </div>
+
+  <div class="why-wrap">
+
+    <!-- IZQUIERDA -->
+    <div class="why-left">
+      <div class="section-label reveal">
+        <div class="section-label-line"></div>
+        <span>Nuestra trayectoria</span>
       </div>
 
-      <div class="why-right">
-        <div class="why-stats-row">
-          <div class="why-stat stat-anim" style="--d:0ms">
-            <div class="why-stat-num" data-target="25">0</div>
-            <div class="why-stat-label">Años</div>
-          </div>
-          <div class="why-stat stat-anim" style="--d:100ms">
-            <div class="why-stat-num" data-target="13">0</div>
-            <div class="why-stat-label">Productos</div>
-          </div>
-          <div class="why-stat stat-anim" style="--d:200ms">
-            <div class="why-stat-num" data-target="100">0<sup>%</sup></div>
-            <div class="why-stat-label">Fabricación propia</div>
-          </div>
-          <div class="why-stat stat-anim" style="--d:300ms">
-            <div class="why-stat-num" data-target="23">0</div>
-            <div class="why-stat-label">Provincias</div>
-          </div>
-        </div>
+      <h2 class="why-headline reveal">
+        En el sector<br>automotriz<br>desde <em>2000.</em>
+      </h2>
 
-        <div class="why-pillars">
-          <div class="why-pillar card-anim" style="--d:0ms">
-            <div class="why-pillar-icon">🏭</div>
-            <div>
-              <div class="why-pillar-title">Fabricación propia</div>
-              <div class="why-pillar-desc">Envases con matricería y diseño propio. Cada producto 100 % original, sin adulteraciones ni tercerización.</div>
-            </div>
-          </div>
-          <div class="why-pillar card-anim" style="--d:80ms">
-            <div class="why-pillar-icon">🏅</div>
-            <div>
-              <div class="why-pillar-title">Certificado IRAM</div>
-              <div class="why-pillar-desc">Cumplimos las normas más exigentes del mercado automotriz argentino en todas nuestras líneas.</div>
-            </div>
-          </div>
-          <div class="why-pillar card-anim" style="--d:160ms">
-            <div class="why-pillar-icon">🚚</div>
-            <div>
-              <div class="why-pillar-title">Logística nacional</div>
-              <div class="why-pillar-desc">Enviamos a todo el país con seguimiento y tiempos de entrega concretos. Correo + flete propio.</div>
-            </div>
-          </div>
-          <div class="why-pillar card-anim" style="--d:240ms">
-            <div class="why-pillar-icon">🤝</div>
-            <div>
-              <div class="why-pillar-title">Trato directo</div>
-              <div class="why-pillar-desc">Sin intermediarios. Atendemos distribuidores, autopartes y talleres de forma personalizada.</div>
-            </div>
-          </div>
+      <div class="why-stats-row">
+        <div class="why-stat stat-anim" style="--d:0ms">
+          <div class="why-stat-num" data-target="25" data-prefix="+">0</div>
+          <div class="why-stat-label">Años</div>
+        </div>
+        <div class="why-stat stat-anim" style="--d:120ms">
+          <div class="why-stat-num" data-target="100" data-prefix="+">0</div>
+          <div class="why-stat-label">Clientes</div>
+        </div>
+        <div class="why-stat stat-anim" style="--d:240ms">
+          <div class="why-stat-num" data-target="23">0</div>
+          <div class="why-stat-label">Provincias</div>
         </div>
       </div>
+
+      <p class="why-desc reveal">
+        Fabricamos productos químicos para el automotor con los más altos estándares de calidad. Sin intermediarios, trato directo con distribuidores, lubricentros y autopartes.
+      </p>
+
+      <a href="#contacto" class="why-cta reveal">
+        Hacer un pedido
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
+
+    <!-- DERECHA — grupo de productos -->
+    <div class="why-right why-img-anim" style="--d:0ms">
+      <img src="./TODO_EL_PORTAFOLIO.png" alt="Línea completa LQ Factory" class="why-portfolio">
+    </div>
+
   </div>
 </section>
 
 <!-- ═══ CONTACTO ══════════════════════════════════════════════════════════ -->
 <section id="contacto" class="contact-section">
-  <div class="container">
-    <div class="section-label reveal">
-      <div class="section-label-line"></div>
-      <span>Contacto directo</span>
-    </div>
-    <div class="section-title reveal">Hablemos de tu pedido</div>
+  <div class="contact-split contact-anim">
 
-    <div class="contact-grid">
-      <div class="contact-anim">
-        <p class="contact-desc">
-          Atendemos distribuidores, autopartes y talleres en todo el país. Sin intermediarios, sin demoras. De lunes a viernes de 8 a 18 hs.
-        </p>
+    <!-- IZQUIERDA — blanca -->
+    <div class="contact-left">
+      <div class="contact-left-inner">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span>Contacto directo</span>
+        </div>
+        <h2 class="contact-title">Hablemos<br>de tu<br>pedido.</h2>
+
         <div class="contact-channels">
           <a href="https://wa.me/5493517075757" target="_blank" class="contact-channel">
-            <div class="channel-icon">💬</div>
+            <div class="channel-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
             <div class="channel-info">
               <div class="channel-label">WhatsApp</div>
               <div class="channel-val">+54 9 351 707-5757</div>
@@ -247,7 +229,9 @@
             <div class="channel-arrow">→</div>
           </a>
           <a href="mailto:lqfabrica@gmail.com" class="contact-channel">
-            <div class="channel-icon">✉️</div>
+            <div class="channel-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
             <div class="channel-info">
               <div class="channel-label">Email</div>
               <div class="channel-val">lqfabrica@gmail.com</div>
@@ -255,7 +239,9 @@
             <div class="channel-arrow">→</div>
           </a>
           <a href="https://www.instagram.com/lq.factory/" target="_blank" class="contact-channel">
-            <div class="channel-icon">📸</div>
+            <div class="channel-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
             <div class="channel-info">
               <div class="channel-label">Instagram</div>
               <div class="channel-val">@lq.factory</div>
@@ -263,42 +249,45 @@
             <div class="channel-arrow">→</div>
           </a>
         </div>
-      </div>
 
-      <div class="contact-anim-r">
-        <div class="contact-card">
-          <div class="contact-card-header">
-            <div class="lq-mark-sm">LQ</div>
-            <div>
-              <div class="contact-card-brand">LQ Factory</div>
-              <div class="contact-card-sub">Quality in Liquid · Córdoba</div>
-            </div>
-          </div>
-          <div class="contact-divider"></div>
-          <div class="contact-info-rows">
-            <div class="contact-info-row">
-              <span class="ci-label">Atención</span>
-              <span class="ci-val">Lunes a Viernes · 8 a 18 hs</span>
-            </div>
-            <div class="contact-info-row">
-              <span class="ci-label">Pedido mínimo</span>
-              <span class="ci-val">Consultar por volumen</span>
-            </div>
-            <div class="contact-info-row">
-              <span class="ci-label">Envíos</span>
-              <span class="ci-val">Todo el país · Correo + flete</span>
-            </div>
-            <div class="contact-info-row">
-              <span class="ci-label">Pagos</span>
-              <span class="ci-val">Transferencia · Efectivo</span>
-            </div>
-          </div>
-          <a href="https://wa.me/5493517075757?text=Hola%20LQ%20Factory!%20Quiero%20hacer%20un%20pedido." target="_blank" class="contact-wsp-btn">
-            Hacer pedido por WhatsApp →
-          </a>
+        <div class="contact-badge">
+          <span class="contact-badge-dot"></span>
+          IRAM Certificado · Fabricación propia · Córdoba
         </div>
       </div>
     </div>
+
+    <!-- DERECHA — roja -->
+    <div class="contact-right contact-anim-r">
+      <div class="contact-right-inner">
+        <div>
+          <div class="contact-r-eyebrow">Trayectoria</div>
+          <div class="contact-r-num" data-target="25">0</div>
+          <div class="contact-r-num-label">Años en el mercado</div>
+        </div>
+
+        <div class="contact-r-rows">
+          <div class="contact-r-row">
+            <div class="contact-r-rl">Atención</div>
+            <div class="contact-r-rv">Lun–Vie · 8 a 18 hs</div>
+          </div>
+          <div class="contact-r-row">
+            <div class="contact-r-rl">Envíos</div>
+            <div class="contact-r-rv">Todo el país</div>
+          </div>
+          <div class="contact-r-row">
+            <div class="contact-r-rl">Pagos</div>
+            <div class="contact-r-rv">Transferencia · Efectivo</div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/5493517075757?text=Hola%20LQ%20Factory!%20Quiero%20hacer%20un%20pedido." target="_blank" class="contact-r-btn">
+          <span>Pedir por WhatsApp</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 

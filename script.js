@@ -1,12 +1,12 @@
 // ══════════════════════════════════════════════════════
-//  LQ FACTORY — script.js  (v2)
+//  LQ FACTORY — script.js  (v3)
 // ══════════════════════════════════════════════════════
 
 const products = [
   {
     id: 1, num: 1,
     name: "Refrigerante Anticongelante Rosa",
-    vol: "5 LTS", price: 10000, cat: "refrigerante", color: "pb-pink", img: "./3.png",
+    vol: "5 LTS", price: 1490, cat: "refrigerante", color: "pb-pink", img: "./8.png",
     desc: "Refrigerante orgánico (OAT) de alta tecnología. Compatible con motores nafteros, diésel y a gas. Formulado con inhibidores de corrosión de larga duración.",
     specs: [
       { l: "Norma",       v: "IRAM 113043"      },
@@ -42,7 +42,7 @@ const products = [
   {
     id: 4, num: 4,
     name: "Refrigerante 30% Rosa",
-    vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white",
+    vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white", img: "./10.png",
     desc: "Mezcla lista para usar al 30% con agua desmineralizada. Protección anticongelante y anticorrosión sin necesidad de dilución adicional.",
     specs: [
       { l: "Concentración", v: "30% anticongelante" },
@@ -54,7 +54,7 @@ const products = [
   {
     id: 5, num: 5,
     name: "Refrigerante 30% Verde",
-    vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white",
+    vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white", img: "./9.png",
     desc: "Mezcla al 30% lista para usar. Formulación convencional para vehículos con sistemas de refrigeración estándar.",
     specs: [
       { l: "Concentración", v: "30% anticongelante" },
@@ -66,7 +66,7 @@ const products = [
   {
     id: 6, num: 6,
     name: "Refrigerante 30% Amarillo",
-    vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white",
+    vol: "5 LTS", price: 4240, cat: "refrigerante", color: "pb-white", img: "./13.png",
     desc: "Mezcla al 30% lista para usar con tecnología híbrida. Ideal para el clima templado argentino.",
     specs: [
       { l: "Concentración", v: "30% anticongelante" },
@@ -90,7 +90,7 @@ const products = [
   {
     id: 8, num: 8,
     name: "Líquido de Frenos DOT 3",
-    vol: "500 CC", price: 3100, cat: "frenos", color: "pb-orange",
+    vol: "500 CC", price: 3100, cat: "frenos", color: "pb-orange", img: "./7.png",
     desc: "Líquido de frenos a base de glicol éter que cumple la norma DOT 3. Apto para sistemas de frenos hidráulicos convencionales y embragues.",
     specs: [
       { l: "Norma",               v: "DOT 3 / FMVSS 116"   },
@@ -102,7 +102,7 @@ const products = [
   {
     id: 9, num: 9,
     name: "Líquido de Frenos DOT 4 Plus",
-    vol: "500 CC", price: 4000, cat: "frenos", color: "pb-red",
+    vol: "500 CC", price: 4000, cat: "frenos", color: "pb-red", img: "./15.png",
     desc: "Formulación avanzada DOT 4 con punto de ebullición superior. Recomendado para ABS, ESP y frenos de disco de alto rendimiento.",
     specs: [
       { l: "Norma",               v: "DOT 4 / FMVSS 116"     },
@@ -138,7 +138,7 @@ const products = [
   {
     id: 12, num: 12,
     name: "Shampoo Siliconado",
-    vol: "500 CC", price: 2700, cat: "limpieza", color: "pb-magenta",
+    vol: "500 CC", price: 2700, cat: "limpieza", color: "pb-magenta", img: "./12.png",
     desc: "Shampoo automotriz con silicona activa. Limpia y protege la pintura generando una capa hidrofóbica que repele el agua y el barro.",
     specs: [
       { l: "Con silicona", v: "Sí"               },
@@ -150,7 +150,7 @@ const products = [
   {
     id: 13, num: 13,
     name: "Silicona Protectora",
-    vol: "250 CC", price: 2100, cat: "limpieza", color: "pb-lime",
+    vol: "250 CC", price: 2100, cat: "limpieza", color: "pb-lime", img: "./11.png",
     desc: "Silicona multiuso para proteger plásticos, gomas y superficies internas. Ideal para tableros, cintas transportadoras y mecanismos.",
     specs: [
       { l: "Presentación", v: "Líquido"                  },
@@ -225,7 +225,6 @@ function openModal(id) {
   document.getElementById('modalPrice').innerHTML   = fmt(p.price) + '<small> / unidad</small>';
   document.getElementById('modalDesc').textContent  = p.desc;
 
-  // bottle or image
   const existing = document.getElementById('modalBottle');
   if (p.img) {
     const img = document.createElement('img');
@@ -364,25 +363,43 @@ const observer = new IntersectionObserver((entries) => {
     if (!entry.isIntersecting) return;
     entry.target.classList.add('visible');
 
-    // animated counter for stats
+    // animated counter — supports both .why-block-num and .why-stat-big
     if (entry.target.classList.contains('stat-anim')) {
-      const el = entry.target.querySelector('.why-stat-num');
-      if (el && !el.dataset.done) {
+      entry.target.querySelectorAll('.why-block-num[data-target], .why-stat-big[data-target], .why-stat-num[data-target]').forEach(el => {
+        if (el.dataset.done) return;
         el.dataset.done = '1';
         const target   = +el.dataset.target;
-        const sup      = el.querySelector('sup');
-        const supHtml  = sup ? sup.outerHTML : '';
+        const prefix   = el.dataset.prefix  || '';
+        const suffix   = el.dataset.suffix  || '';
         const duration = 1400;
         const start    = performance.now();
         const tick = (now) => {
-          const p   = Math.min((now - start) / duration, 1);
+          const p    = Math.min((now - start) / duration, 1);
           const ease = 1 - Math.pow(1 - p, 3);
           const val  = Math.round(ease * target);
-          el.innerHTML = val + supHtml;
+          el.textContent = prefix + val + suffix;
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
-      }
+      });
+    }
+
+    // animated counter for contact right column
+    if (entry.target.classList.contains('contact-anim-r')) {
+      entry.target.querySelectorAll('.contact-r-num[data-target]').forEach(el => {
+        if (el.dataset.done) return;
+        el.dataset.done = '1';
+        const target = +el.dataset.target;
+        const duration = 1400;
+        const start = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(ease * target);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
     }
 
     observer.unobserve(entry.target);
@@ -390,7 +407,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll(
-  '.reveal, .why-header-anim, .stat-anim, .card-anim, .contact-anim, .contact-anim-r'
+  '.reveal, .why-header-anim, .stat-anim, .card-anim, .why-img-anim, .contact-anim, .contact-anim-r'
 ).forEach(el => observer.observe(el));
 
 // ─── INIT ─────────────────────────────────────────────
@@ -437,26 +454,22 @@ function handleViewerOverlayClick(e) {
 
 function applyRotation() {
   const obj = document.getElementById('viewerObject');
-  // clamp vertical rotation so product doesn't flip upside-down
   rotX = Math.max(-38, Math.min(38, rotX));
   obj.style.transform = `rotateX(${-rotX}deg) rotateY(${rotY}deg)`;
 }
 
-// Idle gentle float when not dragging
 function startIdleFloat() {
   if (!viewerActive) return;
   if (!isDragging) {
     velY += 0.04;
     rotY += velY * 0.06;
     velY *= 0.98;
-    // subtle bob
     rotX += Math.sin(Date.now() / 2200) * 0.015;
     applyRotation();
   }
   rafId = requestAnimationFrame(startIdleFloat);
 }
 
-// Mouse
 const stage = document.getElementById('viewerStage');
 stage.addEventListener('mousedown', e => {
   isDragging = true;
@@ -478,7 +491,6 @@ window.addEventListener('mousemove', e => {
 });
 window.addEventListener('mouseup', () => { isDragging = false; });
 
-// Touch
 stage.addEventListener('touchstart', e => {
   isDragging = true;
   startX = e.touches[0].clientX; startY = e.touches[0].clientY;
@@ -498,5 +510,45 @@ window.addEventListener('touchmove', e => {
 }, { passive: true });
 window.addEventListener('touchend', () => { isDragging = false; });
 
-// Escape closes viewer
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeViewer(); closeModal(); } });
+
+
+// ─── NAV scroll behaviour ─────────────────────────────
+(function() {
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav.style.background = 'rgba(10,12,15,.96)';
+      nav.style.backdropFilter = 'blur(8px)';
+      nav.style.borderBottom = '1px solid rgba(255,255,255,.06)';
+      nav.style.position = 'fixed';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = '';
+      nav.style.borderBottom = 'none';
+      nav.style.position = 'absolute';
+    }
+  }, { passive: true });
+})();
+
+
+// ─── WHY SECTION — image switcher ─────────────────────
+function switchWhyImg(btn) {
+  const img = document.getElementById('whySceneImg');
+  const tag = document.querySelector('.why-scene-tag');
+  if (!img || !btn) return;
+
+  // Update active tab
+  document.querySelectorAll('.why-prod-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Animate out
+  img.classList.add('switching');
+  setTimeout(() => {
+    img.src = btn.dataset.img;
+    if (tag) tag.textContent = btn.dataset.label;
+    img.onload = () => img.classList.remove('switching');
+    // fallback if already cached
+    setTimeout(() => img.classList.remove('switching'), 50);
+  }, 320);
+}
