@@ -517,7 +517,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeViewe
 (function() {
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 900) return;
+    
     if (window.scrollY > 20) {
       nav.style.background = 'rgba(10,12,15,.96)';
       nav.style.backdropFilter = 'blur(8px)';
@@ -552,4 +552,4 @@ function switchWhyImg(btn) {
     // fallback if already cached
     setTimeout(() => img.classList.remove('switching'), 50);
   }, 320);
-}q
+}
