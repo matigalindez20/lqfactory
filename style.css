@@ -871,13 +871,22 @@ footer {
 
 /* ── Mobile (≤ 900px) ── */
 @media (max-width: 900px) {
-  nav { padding: 0 20px; height: 72px; }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    padding: 0 20px; height: 80px;
+    background: var(--ink);
+    border-bottom: 1px solid var(--ink-line);
+    display: flex; align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
   nav ul { display: none; }
-  .nav-logo-img { height: 60px; }
+  .nav-logo-img { height: 58px; }
+  .cart-btn { padding: 10px 16px; font-size: 11px; gap: 8px; margin-left: auto; }
 
   .hero {
     height: auto; min-height: auto;
-    padding: 32px 20px 0;
+    padding: 48px 20px 0;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -886,7 +895,7 @@ footer {
   .hero-text { min-width: unset; width: 100%; }
   .hero-eyebrow { margin-bottom: 12px; }
   .hero-eyebrow span { font-size: 10px; }
-  .hero-headline { font-size: clamp(40px, 11vw, 58px); margin-bottom: 16px; line-height: .92; }
+  .hero-headline { font-size: clamp(38px, 11vw, 56px); margin-bottom: 16px; line-height: .92; }
   .hero-sub { font-size: 13px; max-width: 100%; margin-bottom: 20px; line-height: 1.55; }
   .hero-actions { gap: 12px; margin-bottom: 0; }
   .btn-primary { padding: 12px 20px; font-size: 11px; }
